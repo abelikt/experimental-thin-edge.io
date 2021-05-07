@@ -20,22 +20,22 @@ jobs:
 
     steps:
         - name: checkout
-        run: echo "NOP"
+          run: echo "NOP"
 
         - name: Download artifact
-        run: echo "NOP"
+          run: echo "NOP"
 
         - name: purge
-        run: echo "NOP"
+          run: echo "NOP"
 
         - name: install mosquitto
-        run: echo "NOP"
+          run: echo "NOP"
 
         - name: install packages
-        run: echo "NOP"
+          run: echo "NOP"
 
         - name: run tedge help
-        run: echo "NOP"
+          run: echo "NOP"
 
   cargo-test-features:
 

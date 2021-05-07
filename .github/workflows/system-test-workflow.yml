@@ -21,10 +21,10 @@ jobs:
     steps:
 
     - name: checkout
-        run: echo "NOP"
+      run: echo "NOP"
 
     - name: Run all Tests
-        run: echo "NOP"
+      run: echo "NOP"
 
     - name: upload results as zip
-        run: echo "NOP"
+      run: echo "NOP"
