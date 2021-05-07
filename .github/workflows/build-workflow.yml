@@ -24,60 +24,31 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: enable toolchain via github action
-        # https://github.com/actions-rs/toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: Install cargo-deb
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: install
-          args: cargo-deb
+        run: echo "NOP"
 
       - name: Build tedge debian package
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: deb
-          args: -p tedge
+        run: echo "NOP"
 
       - name: Build tedge_mapper debian package
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: deb
-          args: -p tedge_mapper
+        run: echo "NOP"
 
       - name: build examples for amd64
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: build
-          args: --release --examples
+        run: echo "NOP"
 
       - name: Upload artifacts as zip
-        # https://github.com/marketplace/actions/upload-a-build-artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: debian-packages-amd64
-          path: target/debian/*.deb
+        run: echo "NOP"
 
       - name: upload amd64 examples as zip
-        # https://github.com/marketplace/actions/upload-a-build-artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: examples_amd64
-          path: target/release/examples/sawtooth_publisher
+        run: echo "NOP"
 
   build_armv7:
 
@@ -91,82 +62,38 @@ jobs:
     steps:
 
       - name: checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: enable toolchain via github action
-        # https://github.com/actions-rs/toolchain
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          target: ${{ env.TARGET}}
-          override: true
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: install cargo-deb
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: install
-          args: cargo-deb
+        run: echo "NOP"
 
       - name: install cargo-strip
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: install
-          args: cargo-strip
+        run: echo "NOP"
 
       - name: build cross release for target
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          use-cross: true
-          command: build
-          args: --release --target=${{ env.TARGET }}
+        run: echo "NOP"
 
       - name: strip binaries (cargo deb fails to strip)
-        # TODO This does not seem to work right
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: strip
+        run: echo "NOP"
 
       - name: build tedge debian package for target
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: deb
-          args: -p tedge --no-strip --no-build --target=${{ env.TARGET }}
+        run: echo "NOP"
 
       - name: build tedge_mapper debian package for target
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: deb
-          args: -p tedge_mapper --no-strip --no-build --target=${{ env.TARGET }}
+        run: echo "NOP"
 
       - name: build examples
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          use-cross: true
-          command: build
-          args: --release --examples --target=${{ env.TARGET }}
+        run: echo "NOP"
 
       - name: upload debian packages as zip
-        # https://github.com/marketplace/actions/upload-a-build-artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: debian-packages-armhf
-          path: target/${{ env.TARGET }}/debian/*.deb
+        run: echo "NOP"
 
       - name: upload examples as zip
-        # https://github.com/marketplace/actions/upload-a-build-artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: examples_armhf
-          path: target/armv7-unknown-linux-gnueabihf/release/examples/sawtooth_publisher
+        run: echo "NOP"
 

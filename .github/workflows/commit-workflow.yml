@@ -21,14 +21,11 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Cargo fmt
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: fmt
-          args: -- --check
+        run: echo "NOP"
+
 
   cargo-clippy:
 
@@ -38,17 +35,13 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: Cargo clippy
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: clippy
+        run: echo "NOP"
 
   cargo-test:
 
@@ -59,18 +52,13 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: Cargo test
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: test
-          args: --verbose
+        run: echo "NOP"
 
   cargo-build:
 
@@ -81,18 +69,13 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: Cargo build
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: build
-          args:  --release
+        run: echo "NOP"
 
   cargo-tarpaulin:
 
@@ -103,33 +86,22 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Enable cache
-        # https://github.com/marketplace/actions/rust-cache
-        uses: Swatinem/rust-cache@v1
+        run: echo "NOP"
 
       - name: install libssl
-        run: sudo apt install libssl-dev
+        run: echo "NOP"
 
       - name: Cargo install tarpaulin
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: install
-          args: cargo-tarpaulin
+        run: echo "NOP"
 
       - name: Cargo tarpaulin
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: tarpaulin
-          args: -v --out Xml
+        run: echo "NOP"
 
       - name: Upload to codecov.io
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{secrets.CODECOV_TOKEN}}
+        run: echo "NOP"
 
   cargo-audit:
 
@@ -141,13 +113,10 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Cargo audit
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: audit
+        run: echo "NOP"
 
   cargo-outdated:
 
@@ -158,10 +127,7 @@ jobs:
     steps:
 
       - name: Checkout
-        uses: actions/checkout@v2
+        run: echo "NOP"
 
       - name: Cargo outdated
-        uses: actions-rs/cargo@v1
-        # https://github.com/marketplace/actions/rust-cargo
-        with:
-          command: outdated
+        run: echo "NOP"
